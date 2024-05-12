@@ -9,7 +9,20 @@ public class Dealership {
     private String phone;
     private ArrayList<Vehicle> inventory;
 
-    // Constructor
+    /**
+     * The UML diagram provided specifies only a parameterized constructor. However,
+     * for practical implementation and flexibility during the file reading process,
+     * a no-argument constructor is essential.
+     */
+    // No-argument constructor
+    public Dealership() {
+        this.name = "";  // Default to empty string or null, as preferred
+        this.address = "";
+        this.phone = "";
+        this.inventory = new ArrayList<>();
+    }
+
+    // Constructor with parameters
     public Dealership(String name, String address, String phone) {
         this.name = name;
         this.address = address;
