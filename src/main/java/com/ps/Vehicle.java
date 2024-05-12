@@ -21,9 +21,10 @@ public class Vehicle {
         this.price = price;
     }
 
+
     @Override
     public String toString() {
-        return String.format("Vehicle{vin=%d, year=%d, make='%s', model='%s', vehicleType='%s', color='%s', odometer=%d, price=%.2f}",
+        return String.format("| %-6d | %-4d | %-10s | %-15s | %-10s | %-7s | %8d | $%9.2f |",
                 vin, year, make, model, vehicleType, color, odometer, price);
     }
 }

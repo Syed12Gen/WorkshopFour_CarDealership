@@ -51,8 +51,12 @@ public class UserInterface {
     }
 
     private void processAllVehiclesRequest() {
-        List<Vehicle> allVehicles = dealership.getAllVehicles();
-        displayVehicles(allVehicles);
+        System.out.println("\nListing All Vehicles:");
+        System.out.println("| VIN    | Year | Make       | Model           | Type       | Color   | Odometer | Price      |");
+        System.out.println("|--------|------|------------|-----------------|------------|---------|----------|------------|");
+       for (Vehicle vehicle : dealership.getAllVehicles()) {
+            System.out.println(vehicle);
+        }
     }
 
     private void displayVehicles(List<Vehicle> vehicles) {
