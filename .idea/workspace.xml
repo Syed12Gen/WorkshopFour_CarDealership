@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="703a8195-b155-4e82-895c-56e9a1a94115" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Images/AddingVehicle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/AddingVehicleCode.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/ErrorHandling.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/HomeScreen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/RemoveVehicle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/VehicleByPriceRange.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/VehicleList_DisplayScreen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/VehicleRemoveError.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ps/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/Dealership.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/Dealership.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/DealershipFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/DealershipFileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ps/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ps/Vehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vehicles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/vehicles.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

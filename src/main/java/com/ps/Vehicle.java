@@ -70,6 +70,13 @@ public class Vehicle {
         return type;
     }
 
+    // Method to calculate the finance amount after down payment and interest
+    public double calculateTotalCost(double downPayment, double interestRate) {
+        double financedAmount = this.price - downPayment;
+        double totalCost = financedAmount + (financedAmount * interestRate / 100);
+        return totalCost;
+    }
+
     @Override
     public String toString() {
         return String.format("| %-6d | %-4d | %-10s | %-15s | %-10s | %-7s | %8d | $%9.2f |",

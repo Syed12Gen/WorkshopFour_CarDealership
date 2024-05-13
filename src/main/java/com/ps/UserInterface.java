@@ -6,10 +6,22 @@ import java.util.List;
 
 public class UserInterface {
     private Dealership dealership;
+    private User currentUser;
+    private Scanner scanner;
 
     // Constructor: Initializes the user interface.
     public UserInterface() {
-        init();  // Initialize the dealership when the UserInterface is created.
+        this.scanner = new Scanner(System.in);
+        this.currentUser = promptForUsername(); // Prompt for the user name at the start
+        init(); // Default user, implement login to change
+
+    }
+
+    // Prompt the user for their username
+    private User promptForUsername() {
+        System.out.print("Please enter your name: ");
+        String username = scanner.nextLine().trim();
+        return new User(username);
     }
 
     // Initializes the dealership data by loading it from a file.
@@ -34,6 +46,8 @@ public class UserInterface {
             System.out.println("7. Find vehicles by type");
             System.out.println("8. Add a vehicle");
             System.out.println("9. Remove a vehicle");
+            System.out.println("10. Checkout a vehicle");
+            System.out.println("11. View My Purchased Vehicles");
             System.out.println("99. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
@@ -66,8 +80,13 @@ public class UserInterface {
                 case 9:
                     processRemoveVehicleRequest(scanner);
                     break;
+                case 10:
+                    processCheckoutRequest();
+                    break;
+                case 11:
+                    processViewMyPurchasedVehicles();
                 case 99:
-                    System.out.println("Goodbye!");
+                    System.out.println("Bye! Thank you for using the system.");
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -224,6 +243,90 @@ public class UserInterface {
         } else {
             System.out.println("Vehicle not found.");
         }
+    }
+
+    // Process the checkout request. This method handles the purchase of a vehicle. The code starts with prompting the user to enter the VIN of the vehicle they want to purchase.
+    // It then finds the vehicle by VIN and displays the details of the selected vehicle. The user is asked to choose between purchasing with full cash or financing.
+    // If the user chooses to finance, they are asked to enter the down payment amount and their credit score. The interest rate is determined based on the credit score, and the total cost is calculated.
+    // The user is then asked to confirm the purchase.
+    // If the user confirms, the vehicle is removed from the dealership inventory and added to the user's purchased vehicles list. The dealership data is saved to the file after the purchase.
+    private void processCheckoutRequest() {
+        System.out.println("Checkout Process");
+
+        System.out.print("Enter the VIN of the vehicle you want to purchase: ");
+        int vin = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline
+        Vehicle vehicle = findVehicleByVin(vin);
+
+        if (vehicle == null) {
+            System.out.println("Vehicle not found.");
+            return;
+        }
+
+        System.out.println("You selected: " + vehicle);
+        System.out.println("The price of the vehicle is $" + vehicle.getPrice());
+
+        System.out.print("Would you like to purchase with full cash or finance? (cash/finance): ");
+        String purchaseType = scanner.next();
+        scanner.nextLine(); // Consume the newline
+
+        double downPayment = 0;
+        double interestRate = 0;
+        double totalCost = vehicle.getPrice();
+
+        if ("finance".equalsIgnoreCase(purchaseType)) {
+            System.out.print("Enter the amount of down payment: ");
+            downPayment = scanner.nextDouble();
+            scanner.nextLine(); // Consume the newline
+
+            System.out.print("Enter your credit score: ");
+            int creditScore = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline
+            interestRate = determineInterestRate(creditScore);
+
+            System.out.println("The interest rate according to your credit score (" + creditScore + ") is " + interestRate + "%");
+
+            totalCost = vehicle.calculateTotalCost(downPayment, interestRate);
+        }
+
+        System.out.println("Total cost after applying down payment and interest: $" + totalCost);
+
+        System.out.print("Proceed with checkout? (yes/no): ");
+        String checkoutConfirm = scanner.next();
+        scanner.nextLine(); // Consume the newline
+
+        if ("yes".equalsIgnoreCase(checkoutConfirm)) {
+            dealership.removeVehicle(vehicle);
+            currentUser.addPurchasedVehicle(vehicle);
+            System.out.println("Vehicle purchased successfully. Thank you!");
+            new DealershipFileManager().saveDealership(dealership, "vehicles.txt");
+        } else {
+            System.out.println("Checkout canceled.");
+        }
+    }
+
+    private void processViewMyPurchasedVehicles() {
+        currentUser.displayPurchasedVehicles();
+    }
+
+    // Helper method to find a vehicle by its VIN
+    private Vehicle findVehicleByVin(int vin) {
+        for (Vehicle v : dealership.getAllVehicles()) {
+            if (v.getVin() == vin) {
+                return v;
+            }
+        }
+        return null;
+    }
+
+    // Helper method to determine the interest rate based on credit score
+    private double determineInterestRate(int creditScore) {
+        if (creditScore >= 750) return 3.5;
+        if (creditScore >= 700) return 4.0;
+        if (creditScore >= 650) return 4.5;
+        if (creditScore >= 600) return 5.0;
+        if (creditScore >= 550) return 5.5;
+        return 6.0;
     }
 
     // Helper method to display a list of vehicles

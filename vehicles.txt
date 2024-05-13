@@ -1,5 +1,8 @@
 Mavericks Motors|1234 Elm Street|555-1234
-37846|2001|Ford|Ranger|Truck|Yellow|172544|1995.00
-44901|2012|Honda|Civic|Sedan|Gray|103221|6995.00
-55672|2018|Toyota|Camry|Sedan|Black|33221|14995.00
-62456|2020|Chevrolet|Tahoe|SUV|White|12000|45000.00
+48392|2005|Toyota|Camry|Sedan|Blue|85000|7500.00
+58203|2010|Honda|Civic|Sedan|Black|95000|8200.00
+19485|2018|Chevrolet|Malibu|Sedan|White|30000|15700.00
+28475|2012|Nissan|Altima|Coupe|Red|62000|9800.00
+38457|2015|Ford|Mustang|Convertible|Black|57000|24300.00
+29384|2008|Honda|Accord|Sedan|Grey|100000|7000.00
+67345|2013|Toyota|Prius|Hatchback|Green|120000|9500.00
