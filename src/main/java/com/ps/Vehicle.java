@@ -9,6 +9,8 @@ public class Vehicle {
     private String color;
     private int odometer;
     private double price;
+    private double mileage;
+    private String type;
 
 
     public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price) {
@@ -20,6 +22,9 @@ public class Vehicle {
         this.color = color;
         this.odometer = odometer;
         this.price = price;
+        this.mileage = mileage;
+        this.type = type;
+
     }
 
     // Getters and Setters
@@ -55,6 +60,14 @@ public class Vehicle {
 
     public double getPrice() {
         return price;
+    }
+
+    public double getMileage() {
+        return mileage;
+    }
+
+    public String getType() {
+        return type;
     }
 
     @Override
