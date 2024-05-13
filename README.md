@@ -9,9 +9,13 @@ This project is a console-based application that simulates the management of a c
 - **Modify Inventory:** Add or remove vehicles from the inventory.
 - **Persistent Storage:** Vehicle data is stored in a pipe-delimited text file, which is updated upon inventory modifications.
 
+## ____________________________________________________________________________________________________________
+
 ## Application Home Screen
 <img alt="HomeScreen" src="Images/HomeScreen.png">
 
+### Click on the dropdown to see the features of the application. Each feature is explained by prompting the user to enter the necessary details to perform the task. 
+You can perform the following actions from the home screen:
 
 <details>
 
@@ -20,7 +24,7 @@ This project is a console-based application that simulates the management of a c
 <img  alt="Display all vehicles" src="Images/VehicleList_DisplayScreen.png">
 
 
-User can view all vehicles in the inventory. The vehicle list includes the vehicle's make, model, year, color, mileage, type, and price. In the above image, the user is viewing all vehicles in the inventory.
+#### User can view all vehicles in the inventory. The vehicle list includes the vehicle's make, model, year, color, mileage, type, and price. In the above image, the user is viewing all vehicles in the inventory.
 </details>
 
 <details> 
@@ -29,7 +33,7 @@ User can view all vehicles in the inventory. The vehicle list includes the vehic
 
 <img alt="Vehicle By Price Range" src="Images/VehicleByPriceRange.png">
 
-The user can find vehicle by various types of filters such as price range, make, model, year, color, mileage, and type. User could also add multiple filters. In the above image, the user is searching for vehicles with a price range of 1000 to 3000.
+#### The user can find vehicle by various types of filters such as price range, make, model, year, color, mileage, and type. User could also add multiple filters. In the above image, the user is searching for vehicles with a price range of 1000 to 3000.
 
 </details>
 
@@ -39,7 +43,7 @@ The user can find vehicle by various types of filters such as price range, make,
 
 <img alt="Adding Vehicle" src="Images/AddingVehicle.png">
 
-User can add a vehicle to the inventory. The user is prompted to enter the details of the vehicle they are adding. In the above image, the user is adding a vehicle with the make "Tesla", model "X", year "2024", color "Black", mileage "0", type "SUV", and price "$100000". 
+#### User can add a vehicle to the inventory. The user is prompted to enter the details of the vehicle they are adding. In the above image, the user is adding a vehicle with the make "Tesla", model "X", year "2024", color "Black", mileage "0", type "SUV", and price "$100000". 
 User added zero odometer reading for the new vehicle. The vehicle is successfully added to the inventory.
 
 
@@ -51,9 +55,11 @@ User added zero odometer reading for the new vehicle. The vehicle is successfull
 
 <img alt="Removing Vehicle" src="Images/RemoveVehicle.png">
 
-User can remove a vehicle from the inventory. The user is prompted to enter the details of the vehicle they are removing. In the above image, the user is removing a vehicle with the Vin number "10001" which is a Tesla X 2024. The vehicle is successfully removed from the inventory.
+#### User can remove a vehicle from the inventory. The user is prompted to enter the details of the vehicle they are removing. In the above image, the user is removing a vehicle with the Vin number "10001" which is a Tesla X 2024. The vehicle is successfully removed from the inventory.
 
 </details>
+
+## ____________________________________________________________________________________________________________
 
 
 ## Error Handling
@@ -61,9 +67,9 @@ User can remove a vehicle from the inventory. The user is prompted to enter the 
 
 <img alt="Error Handling" src="Images/ErrorHandling.png">
 
-Anytime the user enters an invalid command, an "invalid command" message will show up, and the user will have to try again and enter a valid command.
+#### Anytime the user enters an invalid command, an "invalid command" message will show up, and the user will have to try again and enter a valid command.
 
-
+## ____________________________________________________________________________________________________________
 ## Interesting Piece of Code
 
 The interesting piece of code adding a vehicle to the inventory and removing a vehicle from the inventory by only using VIN number. The code snippet below shows how the vehicle is added to the inventory and removed from the inventory by using the VIN number.
@@ -109,9 +115,12 @@ The `processRemoveVehicleRequest` method is designed to handle the removal of ve
    int vin = scanner.nextInt();
    ```
 
-   The VIN number is used to uniquely identify the vehicle to be removed from the inventory. If the VIN number provided by the user matches a vehicle in the inventory, that vehicle is removed. If no matching vehicle is found, an error message is displayed to the user.
+#### The VIN number is used to uniquely identify the vehicle to be removed from the inventory. If the VIN number provided by the user matches a vehicle in the inventory, that vehicle is removed. If no matching vehicle is found, an error message is displayed to the user.
 
-   Here is the code snippet for the complete `processRemoveVehicleRequest` method:
+Here is the code snippet for the complete `processRemoveVehicleRequest` method:
+
+
+
    <img alt="AmountRange" src="Images/VehicleRemoveError.png">
 
 
